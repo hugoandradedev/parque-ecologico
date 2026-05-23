@@ -18,7 +18,7 @@
 
     </a>
 
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Menu principal">
 
         <ul class="nav-links">
 
@@ -40,7 +40,7 @@
                 </a>
             </li>
 
-            <!-- botão dinâmico -->
+            <!-- auth area: populated dynamically -->
             <li id="auth-area"></li>
 
         </ul>
@@ -68,41 +68,29 @@ async function logout(e) {
 
 async function carregarNavbar() {
 
-    const authArea =
-        document.getElementById("auth-area");
+    const authArea = document.getElementById("auth-area");
 
     try {
 
         const res = await fetch(
-    "/parque_ecologico/api/auth/check",
-    {
-        credentials: "include"
-    }
-);
-
-console.log("CHECK:", res.status);
-
+            "/parque_ecologico/api/auth/check",
+            { credentials: "include" }
+        );
 
         const user = await res.json();
-
-        let html = "";
         const userTipo = String(user.tipo || '').toLowerCase().trim();
+        let html = "";
 
         if (userTipo === "admin") {
-            html += `
-                <a href="/parque_ecologico/admin">
-                    Painel Admin
-                </a>
-            `;
-
-		html += `
-            <a href="#" id="logout-btn">
-                Sair
-            </a>
-        `;
+            html += `<a href="/parque_ecologico/admin">Painel Admin</a>`;
+            html += `<a href="#" id="logout-btn">Sair</a>`;
+        } else if (userTipo !== "") {
+            /* logged-in non-admin user */
+            html += `<a href="#" id="logout-btn">Sair</a>`;
+        } else {
+            /* unauthenticated */
+            html += `<a href="/parque_ecologico/login">Login</a>`;
         }
-
-        
 
         authArea.innerHTML = html;
 
@@ -113,9 +101,7 @@ console.log("CHECK:", res.status);
     } catch {
 
         authArea.innerHTML = `
-            <a href="/parque_ecologico/login">
-                Login
-            </a>
+            <a href="/parque_ecologico/login">Login</a>
         `;
     }
 }

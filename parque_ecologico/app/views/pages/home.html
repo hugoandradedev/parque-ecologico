@@ -7,7 +7,7 @@
 <section class="site-section">
     <div class="col-half">
         <h2 class="section-title-center">Galeria de Imagens</h2>
-        <div class="gallery-carousel" aria-label="Galeria de imagens do parque">
+        <div class="gallery-carousel" role="region" aria-label="Galeria de imagens do parque">
             <div class="gallery-track">
                 <img class="gallery-slide active" src="/parque_ecologico/public/images/gallery-1.png" alt="Imagem 1 do Parque Ecológico">
                 <img class="gallery-slide" src="/parque_ecologico/public/images/gallery-2.png" alt="Imagem 2 do Parque Ecológico">
@@ -20,7 +20,7 @@
             <button class="gallery-control gallery-prev" type="button" aria-label="Imagem anterior">‹</button>
             <button class="gallery-control gallery-next" type="button" aria-label="Próxima imagem">›</button>
 
-            <div class="gallery-dots" aria-label="Selecionar imagem da galeria"></div>
+            <div class="gallery-dots" role="group" aria-label="Selecionar imagem da galeria"></div>
         </div>
     </div>
 
@@ -101,8 +101,8 @@
             <h3>Sobre Nós</h3>
 
             <img
-                src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=700&q=80"
-                alt="Trilha iluminada por árvores">
+                src="/parque_ecologico/public/images/gallery-3.png"
+                alt="Trilha iluminada no parque ecológico">
 
             <p>
                 Conheça a história, missão e
@@ -126,22 +126,34 @@
 
         <div class="faq-list">
             <div class="faq-item">
-                <button class="faq-question" type="button">Quais atividades estão disponíveis no parque? <span>v</span></button>
+                <button class="faq-question" type="button" aria-expanded="false">
+                    Quais atividades estão disponíveis no parque?
+                    <i class="faq-chevron" aria-hidden="true">▾</i>
+                </button>
                 <div class="faq-answer">Caminhadas, corridas, áreas de convivência, atividades educativas e espaços para visitas agendadas.</div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question" type="button">Qual é o horário de funcionamento? <span>v</span></button>
-                <div class="faq-answer">O parque funciona todos os dias, das 7h às 17h.</div>
+                <button class="faq-question" type="button" aria-expanded="false">
+                    Qual é o horário de funcionamento?
+                    <i class="faq-chevron" aria-hidden="true">▾</i>
+                </button>
+                <div class="faq-answer">O parque funciona todos os dias, das 8h às 17h.</div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question" type="button">É cobrado ingresso para entrar no parque? <span>v</span></button>
+                <button class="faq-question" type="button" aria-expanded="false">
+                    É cobrado ingresso para entrar no parque?
+                    <i class="faq-chevron" aria-hidden="true">▾</i>
+                </button>
                 <div class="faq-answer">A entrada é gratuita.</div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question" type="button">Os quiosques possuem custo de utilização? <span>v</span></button>
+                <button class="faq-question" type="button" aria-expanded="false">
+                    Os quiosques possuem custo de utilização?
+                    <i class="faq-chevron" aria-hidden="true">▾</i>
+                </button>
                 <div class="faq-answer">A reserva deve ser solicitada pelo formulário. A administração confirma disponibilidade e orientações de uso.</div>
             </div>
         </div>

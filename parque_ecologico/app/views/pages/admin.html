@@ -40,30 +40,33 @@
             <!-- FILTROS EXTRAS -->
             <div class="filter-options">
 
-            <select id="tipoFiltro">
+            <select id="tipoFiltro" aria-label="Filtrar por tipo">
                 <option value="">Todos os tipos</option>
                 <option value="agendamento">Quiosques</option>
                 <option value="visita">Visitas Técnicas</option>
             </select>
 
-            <select id="sortOrder" title="Ordenar">
+            <select id="sortOrder" aria-label="Ordenar registros">
                 <option value="desc">Mais recentes primeiro</option>
                 <option value="asc">Mais antigos primeiro</option>
             </select>
 
-            <input type="date" id="dataFiltro">
+            <input type="date" id="dataFiltro" aria-label="Filtrar por data">
 
             <input type="number"
                    id="quiosqueFiltro"
-                   placeholder="Quiosque">
+                   placeholder="Quiosque"
+                   aria-label="Filtrar por número do quiosque">
 
             <input type="text"
                    id="responsavelFiltro"
-                   placeholder="Nome do responsável">
+                   placeholder="Nome do responsável"
+                   aria-label="Filtrar por nome do responsável">
 
             <input type="text"
                    id="guiaFiltro"
-                   placeholder="Guia">
+                   placeholder="Guia"
+                   aria-label="Filtrar por guia">
 
         </div>
 

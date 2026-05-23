@@ -211,6 +211,10 @@ p {
     background: var(--danger);
 }
 
+.toast-warning {
+    background: var(--warning);
+}
+
 .guia-panel {
     padding: 20px;
     border: 1px solid var(--border-color);
@@ -352,7 +356,7 @@ p {
 }
 
 .section-title-center {
-    color: #34d399;
+    color: var(--green-dark);
     text-align: center;
 }
 
@@ -1248,6 +1252,248 @@ textarea {
     .word-list-panel {
         width: 100%;
     }
+}
+
+/* ── btn-primary alias ───────────────────────────────────── */
+.btn-primary {
+    background: var(--green-btn);
+}
+
+.btn-primary:hover {
+    background: var(--green-mid);
+}
+
+/* ── Badges ──────────────────────────────────────────────── */
+.badge {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.badge-success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-secondary {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+/* ── Checkbox inline label (mensagens) ───────────────────── */
+.checkbox-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* ── Bloqueios panel ─────────────────────────────────────── */
+.bloqueios-panel {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    padding: 24px;
+}
+
+.bloqueios-header {
+    margin-bottom: 20px;
+}
+
+.bloqueios-header h2 {
+    margin-bottom: 6px;
+}
+
+.bloqueios-header p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.bloqueios-form-section {
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.bloqueios-list-section h3 {
+    margin-bottom: 12px;
+}
+
+.bloqueio-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: #f9fff5;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.bloqueio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.bloqueio-info strong {
+    color: var(--green-dark);
+}
+
+.bloqueio-info span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.btn-small {
+    padding: 7px 14px;
+    font-size: 0.88rem;
+}
+
+/* ── Datas comemorativas ─────────────────────────────────── */
+.datas-comemorativas-section {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.datas-comemorativas-section h3 {
+    margin-bottom: 6px;
+}
+
+.datas-list {
+    margin-top: 12px;
+}
+
+.datas-info {
+    background: var(--green-soft);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.datas-info p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.datas-table {
+    display: grid;
+    gap: 6px;
+}
+
+.data-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--white);
+    flex-wrap: wrap;
+}
+
+.data-row.bloqueada {
+    background: #f0fdf4;
+    border-color: #86efac;
+}
+
+.data-date {
+    font-weight: 700;
+    color: var(--green-dark);
+    min-width: 100px;
+}
+
+.data-nome {
+    color: var(--text-muted);
+    flex: 1;
+}
+
+.badge-bloqueado {
+    color: #166534;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+/* ── Mensagens panel ─────────────────────────────────────── */
+.mensagens-panel {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    padding: 24px;
+}
+
+.mensagens-header {
+    margin-bottom: 20px;
+}
+
+.mensagens-header h2 {
+    margin-bottom: 6px;
+}
+
+.mensagens-header p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.mensagens-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.mensagens-controls input[type="text"] {
+    flex: 1;
+    min-width: 180px;
+}
+
+.mensagens-status-filtro {
+    min-width: 160px;
+}
+
+.mensagens-list {
+    display: grid;
+    gap: 16px;
+}
+
+.mensagem-card .card-header small {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 0.88rem;
+    margin-left: 8px;
+}
+
+.mensagem-card .card-header .date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* ── FAQ chevron rotation ────────────────────────────────── */
+.faq-item.active .faq-chevron {
+    display: inline-block;
+    transform: rotate(180deg);
+}
+
+.faq-chevron {
+    display: inline-block;
+    transition: transform 0.25s ease;
+    color: var(--green-dark);
+    font-style: normal;
 }
 
 @media (max-width: 560px) {

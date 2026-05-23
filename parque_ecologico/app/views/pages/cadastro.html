@@ -1,21 +1,35 @@
 <section class="page-hero">
     <h1>Criar Conta</h1>
+    <p>Preencha os dados abaixo para cadastrar um novo acesso ao sistema.</p>
 </section>
 
-<form id="cadastro-form">
+<div class="content-wrap">
+    <form id="cadastro-form" class="form-agendamento" style="max-width:480px;">
 
-    <input type="text" name="nome" placeholder="Nome" required>
+        <div class="form-group">
+            <label for="cadastro_nome">Nome *</label>
+            <input type="text" id="cadastro_nome" name="nome" required>
+        </div>
 
-    <input type="text" name="sobrenome" placeholder="Sobrenome" required>
+        <div class="form-group">
+            <label for="cadastro_sobrenome">Sobrenome *</label>
+            <input type="text" id="cadastro_sobrenome" name="sobrenome" required>
+        </div>
 
-    <input type="text" name="usuario" placeholder="Usuário" required>
+        <div class="form-group">
+            <label for="cadastro_usuario">Usuário *</label>
+            <input type="text" id="cadastro_usuario" name="usuario" autocomplete="username" required>
+        </div>
 
-    <input type="password" name="senha" placeholder="Senha" required>
+        <div class="form-group">
+            <label for="cadastro_senha">Senha *</label>
+            <input type="password" id="cadastro_senha" name="senha" autocomplete="new-password" required>
+        </div>
 
-    <button type="submit">Cadastrar</button>
+        <button type="submit" class="btn">Cadastrar</button>
+    </form>
 
-</form>
-
-<p id="resultado"></p>
+    <p id="resultado"></p>
+</div>
 
 <script src="/parque_ecologico/public/js/cadastro.js"></script>

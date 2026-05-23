@@ -1,3 +1,11 @@
+// Set minimum selectable date to today
+document.addEventListener("DOMContentLoaded", () => {
+    const dateInput = document.getElementById("data_reserva");
+    if (dateInput) {
+        dateInput.min = new Date().toISOString().split("T")[0];
+    }
+});
+
 // Validação de telefone - apenas números com formatação automática
 const phoneInputs = document.querySelectorAll('input[type="tel"]');
 phoneInputs.forEach(input => {

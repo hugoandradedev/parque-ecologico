@@ -1,16 +1,16 @@
-// Validação de telefone - apenas números com formatação automática
-const phoneInputs = document.querySelectorAll('input[type="tel"]');
-phoneInputs.forEach(input => {
-    input.addEventListener('input', function() {
-        // Remove tudo que não é número
+// Set minimum selectable date to today
+document.addEventListener("DOMContentLoaded", () => {
+    const dateInput = document.getElementById("data_visita");
+    if (dateInput) {
+        dateInput.min = new Date().toISOString().split("T")[0];
+    }
+});
+
+// Phone auto-format: (XX) XXXXX-XXXX
+document.querySelectorAll('input[type="tel"]').forEach(input => {
+    input.addEventListener('input', function () {
         let value = this.value.replace(/[^0-9]/g, '');
-        
-        // Limita a 11 dígitos
-        if (value.length > 11) {
-            value = value.substring(0, 11);
-        }
-        
-        // Formata automaticamente: (XX) XXXXX-XXXX
+        if (value.length > 11) value = value.substring(0, 11);
         if (value.length > 0) {
             if (value.length <= 2) {
                 value = '(' + value;
@@ -20,7 +20,6 @@ phoneInputs.forEach(input => {
                 value = '(' + value.substring(0, 2) + ') ' + value.substring(2, 7) + '-' + value.substring(7);
             }
         }
-        
         this.value = value;
     });
 });
@@ -29,10 +28,23 @@ function limparFormulario(form) {
     form.reset();
 }
 
-document.getElementById("visita-form")?.addEventListener("submit", async function(e) {
+document.getElementById("visita-form")?.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const form = e.target;
+    const resultado = document.getElementById("resultado");
+    const botao = form.querySelector("button[type='submit']");
+
+    if (!form.checkValidity()) {
+        resultado.innerText = "Por favor, preencha todos os campos obrigatórios.";
+        resultado.className = "form-message erro";
+        form.reportValidity();
+        return;
+    }
+
+    botao.disabled = true;
+    botao.textContent = "Enviando...";
+
     const formData = new FormData(form);
 
     const data = {
@@ -41,37 +53,44 @@ document.getElementById("visita-form")?.addEventListener("submit", async functio
         nome_responsavel: formData.get("nome_responsavel"),
         telefone: formData.get("telefone"),
         email: formData.get("email"),
-
         data_visita: formData.get("data_visita"),
         guia_id: parseInt(formData.get("guia_id"), 10),
-
         faixa_etaria: formData.get("faixa_etaria"),
         qtd_visitantes: parseInt(formData.get("qtd_visitantes"), 10),
-
         objetivo: formData.get("objetivo"),
         observacoes: formData.get("observacoes"),
-
         horario_entrada: formData.get("horario_entrada"),
         horario_saida: formData.get("horario_saida"),
-
         aceite_termos: formData.get("aceite_termos") ? 1 : 0
     };
 
-    const response = await fetch("/parque_ecologico/api/visita/enviar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
+    try {
+        const response = await fetch("/parque_ecologico/api/visita/enviar", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
 
-    const result = await response.json();
-    const resultado = document.getElementById("resultado");
+        const result = await response.json();
 
-    resultado.innerText = result.erro || result.mensagem;
-    resultado.className = response.ok ? "form-message sucesso" : "form-message erro";
+        resultado.innerText =
+            result.erro ||
+            result.mensagem ||
+            "Solicitação processada.";
 
-    if (response.ok) {
-        limparFormulario(form);
+        resultado.className =
+            response.ok ? "form-message sucesso" : "form-message erro";
+
+        if (response.ok) {
+            limparFormulario(form);
+        }
+
+    } catch {
+        resultado.innerText = "Erro ao enviar. Verifique sua conexão e tente novamente.";
+        resultado.className = "form-message erro";
+
+    } finally {
+        botao.disabled = false;
+        botao.textContent = "Solicitar Visita Técnica";
     }
 });

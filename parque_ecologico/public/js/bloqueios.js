@@ -53,22 +53,7 @@ function attachBloqueioRemoverHandlers() {
     });
 }
 
-// Toggle do painel
-btnBloqueios?.addEventListener('click', () => {
-    const isVisible = bloqueiosPanel.style.display !== 'none';
-    
-    // Fechar painel de guias
-    document.getElementById('guia-panel').style.display = 'none';
-    
-    // Toggle painel de bloqueios
-    bloqueiosPanel.style.display = isVisible ? 'none' : 'block';
-    
-    if (!isVisible) {
-        carregarBloqueios();
-    }
-});
-
-// Carregar bloqueios
+// Carregar bloqueios (chamado pelo admin.js quando a aba é activada)
 function carregarBloqueios() {
 fetch('/parque_ecologico/api/bloqueios/listar', {
             credentials: 'include'

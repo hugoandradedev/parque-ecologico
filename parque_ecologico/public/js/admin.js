@@ -502,8 +502,11 @@ function showToast(message, type = 'success') {
     const toast = document.getElementById('toast');
     if (!toast) return;
 
+    // 'warning' falls back to 'error' styling since toast-warning is defined in CSS
+    const safeType = ['success', 'error', 'warning'].includes(type) ? type : 'success';
+
     toast.textContent = message;
-    toast.className = `toast toast-${type}`;
+    toast.className = `toast toast-${safeType}`;
     toast.style.opacity = '1';
 
     clearTimeout(window.guiaToastTimeout);
@@ -649,24 +652,22 @@ function processarFiltro() {
     const status =
         document.querySelector(
             'input[name="filtro"]:checked'
-        ).value;
+        )?.value || 'todos';
 
     const tipo =
-        document.getElementById("tipoFiltro").value;
+        document.getElementById("tipoFiltro")?.value || '';
 
     const data =
-        document.getElementById("dataFiltro").value;
+        document.getElementById("dataFiltro")?.value || '';
 
     const quiosque =
-        document.getElementById("quiosqueFiltro").value;
+        document.getElementById("quiosqueFiltro")?.value || '';
 
     const responsavel =
-        document.getElementById("responsavelFiltro")
-            .value.toLowerCase();
+        (document.getElementById("responsavelFiltro")?.value || '').toLowerCase();
 
     const guia =
-        document.getElementById("guiaFiltro")
-            .value.toLowerCase();
+        (document.getElementById("guiaFiltro")?.value || '').toLowerCase();
 
     document.querySelectorAll(".admin-card")
         .forEach(card => {
