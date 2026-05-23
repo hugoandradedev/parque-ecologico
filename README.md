@@ -54,3 +54,7 @@ O dump possui um usuario admin. Use as credenciais combinadas pelo responsavel d
 ## Deploy
 
 Veja [DEPLOY_INFINITYFREE.md](DEPLOY_INFINITYFREE.md).
+
+## Contrato da API
+
+Veja [API_CONTRACT.md](API_CONTRACT.md) para regras de telefone, e-mail e comportamento de `/api/auth/check`.
