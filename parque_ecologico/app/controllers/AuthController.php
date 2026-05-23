@@ -28,8 +28,12 @@
             exit;
         }
 
-        private function sanitizeInput(string $value): string {
-            return trim(strip_tags($value));
+        private function sanitizeInput($value): string {
+            if (!is_scalar($value)) {
+                return '';
+            }
+
+            return trim(strip_tags((string) $value));
         }
 
         private function validateLoginName(string $login): bool {
@@ -67,7 +71,7 @@
                 $nome = $this->sanitizeInput($data['nome'] ?? '');
                 $sobrenome = $this->sanitizeInput($data['sobrenome'] ?? '');
                 $login = $this->sanitizeInput($data['usuario'] ?? '');
-                $senha = $data['senha'] ?? '';
+                $senha = is_string($data['senha'] ?? null) ? $data['senha'] : '';
 
                 if (!$nome || !$sobrenome || !$login || !$senha) {
                     $this->json([
@@ -180,7 +184,7 @@
                     $data['usuario'] ?? ''
                 );
 
-                $senha = $data['senha'] ?? '';
+                $senha = is_string($data['senha'] ?? null) ? $data['senha'] : '';
 
                 if (!$usuario || !$senha) {
 

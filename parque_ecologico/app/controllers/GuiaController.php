@@ -13,7 +13,11 @@ class GuiaController {
     }
 
     private function sanitizeField($value) {
-        return trim(strip_tags($value ?? ''));
+        if (!is_scalar($value)) {
+            return '';
+        }
+
+        return trim(strip_tags((string) $value));
     }
 
     private function normalizePhone($value) {
@@ -72,9 +76,9 @@ class GuiaController {
             return;
         }
 
-        if (strlen($telefone) > 20) {
+        if ($telefone !== null && !preg_match('/^\d{10,11}$/', $telefone)) {
             http_response_code(400);
-            echo json_encode(["erro" => "Telefone não pode ter mais de 20 caracteres"]);
+            echo json_encode(["erro" => "Telefone inválido. Use 10 ou 11 dígitos"]);
             return;
         }
 
@@ -154,9 +158,9 @@ class GuiaController {
             return;
         }
 
-        if (strlen($telefone) > 20) {
+        if ($telefone !== null && !preg_match('/^\d{10,11}$/', $telefone)) {
             http_response_code(400);
-            echo json_encode(["erro" => "Telefone não pode ter mais de 20 caracteres"]);
+            echo json_encode(["erro" => "Telefone inválido. Use 10 ou 11 dígitos"]);
             return;
         }
 

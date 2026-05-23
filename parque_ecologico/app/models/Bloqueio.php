@@ -27,7 +27,8 @@ class Bloqueio {
 
     public function delete($id) {
         $stmt = $this->conn->prepare("DELETE FROM bloqueios WHERE id = ?");
-        return $stmt->execute([$id]);
+        $stmt->execute([$id]);
+        return $stmt->rowCount() > 0;
     }
 
     public function getBloqueiosPorAno($ano) {

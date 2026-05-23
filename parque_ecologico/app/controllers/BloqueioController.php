@@ -15,7 +15,11 @@ class BloqueioController {
 
     // Datas comemorativas fixas do Brasil
     private function sanitizeText($value) {
-        return trim(strip_tags($value));
+        if (!is_scalar($value)) {
+            return '';
+        }
+
+        return trim(strip_tags((string) $value));
     }
 
     private function isValidDate($value) {
@@ -98,6 +102,11 @@ class BloqueioController {
         header('Content-Type: application/json');
 
         $data = json_decode(file_get_contents("php://input"), true);
+        if (!$data || !is_array($data)) {
+            http_response_code(400);
+            echo json_encode(['erro' => 'Payload inválido']);
+            return;
+        }
 
         $data['data_bloqueada'] = $this->sanitizeText($data['data_bloqueada'] ?? '');
         $data['motivo'] = $this->sanitizeText($data['motivo'] ?? '');
@@ -154,8 +163,8 @@ class BloqueioController {
             if ($this->model->delete($id)) {
                 echo json_encode(['mensagem' => 'Bloqueio removido com sucesso']);
             } else {
-                http_response_code(500);
-                echo json_encode(['erro' => 'Erro ao remover bloqueio']);
+                http_response_code(404);
+                echo json_encode(['erro' => 'Bloqueio não encontrado']);
             }
         } catch (Throwable $e) {
             error_log("Bloqueio delete error: " . $e->getMessage());
@@ -236,7 +245,15 @@ class BloqueioController {
         header('Content-Type: application/json');
 
         try {
-            $ano = (int) ($_POST['ano'] ?? date('Y'));
+            $data = $_POST;
+            if (empty($data)) {
+                $json = json_decode(file_get_contents("php://input"), true);
+                $data = is_array($json) ? $json : [];
+            }
+
+            $ano = is_scalar($data['ano'] ?? null)
+                ? (int) $data['ano']
+                : (int) date('Y');
             if ($ano < 2000 || $ano > 2100) {
                 http_response_code(422);
                 echo json_encode(['erro' => 'Ano inválido']);

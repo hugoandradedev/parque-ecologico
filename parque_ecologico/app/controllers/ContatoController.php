@@ -17,7 +17,11 @@ class ContatoController {
     }
 
     private function limpar($v) {
-        return trim(strip_tags($v ?? ''));
+        if (!is_scalar($v)) {
+            return '';
+        }
+
+        return trim(strip_tags((string) $v));
     }
 
     private function parseBoolean($value) {
@@ -78,7 +82,9 @@ class ContatoController {
         }
 
         // validar telefone opcional: deve ter 10 ou 11 dígitos quando informado
-        $telefoneRaw = preg_replace('/[^0-9]/', '', $data['telefone'] ?? '');
+        $telefoneRaw = is_scalar($data['telefone'] ?? null)
+            ? preg_replace('/[^0-9]/', '', (string) $data['telefone'])
+            : '';
         if ($telefoneRaw !== '' && !preg_match('/^\d{10,11}$/', $telefoneRaw)) {
             http_response_code(422);
             echo json_encode(["erro" => "Telefone inválido. Use 10 ou 11 dígitos."]);

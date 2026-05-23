@@ -336,6 +336,12 @@ class VisitaTecnicaController {
             return;
         }
 
+        if (!in_array($status, ['aprovado', 'rejeitado'], true)) {
+            http_response_code(400);
+            echo json_encode(["erro" => "Status inválido"]);
+            return;
+        }
+
         $stmt = $this->conn->prepare("SELECT * FROM visita_tecnica WHERE id = ? LIMIT 1");
         $stmt->execute([$id]);
         $visita = $stmt->fetch(PDO::FETCH_ASSOC);
