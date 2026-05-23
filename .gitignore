@@ -1,0 +1,23 @@
+.DS_Store
+Thumbs.db
+
+# Local/environment secrets
+.env
+parque_ecologico/.env
+
+# Runtime/cache artifacts
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Dependency/build folders, if introduced later
+vendor/
+node_modules/
+dist/
+build/
+
+# Local IDE files
+.idea/
+.vscode/
