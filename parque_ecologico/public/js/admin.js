@@ -35,6 +35,12 @@ function setupPhoneValidation() {
 document.addEventListener("DOMContentLoaded", () => {
     setupPhoneValidation();
 
+    // E-mail do formulário de guia com feedback em tempo real
+    if (window.EmailValidation) {
+        EmailValidation.setup(document.getElementById('guia_email'));
+    }
+
+
     document.querySelectorAll(
         'input[name="filtro"]'
     ).forEach(el =>
@@ -170,6 +176,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const msgEl = document.getElementById('guia-msg');
             msgEl.textContent = '';
+
+            // Validação de e-mail no cliente antes de enviar
+            if (email && window.EmailValidation) {
+                const emailErro = EmailValidation.validate(email);
+                if (emailErro) {
+                    msgEl.textContent = emailErro;
+                    document.getElementById('guia_email')?.focus();
+                    return;
+                }
+            }
 
             try {
                 const token = document.getElementById('csrfToken')?.value;

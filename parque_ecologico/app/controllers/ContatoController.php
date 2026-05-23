@@ -75,9 +75,10 @@ class ContatoController {
             return;
         }
 
-        if (!emailValido($email)) {
+        $erroEmail = obterErroEmail($email);
+        if ($erroEmail !== null) {
             http_response_code(422);
-            echo json_encode(["erro" => "E-mail inválido."]);
+            echo json_encode(["erro" => $erroEmail]);
             return;
         }
 

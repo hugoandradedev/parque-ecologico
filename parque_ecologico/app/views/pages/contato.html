@@ -111,9 +111,24 @@ document.getElementById("contato-form")?.addEventListener("submit", async functi
         return;
     }
 
+    const emailInput = document.getElementById('email');
+    const emailVal = emailInput ? emailInput.value.trim() : '';
+
+    // Validação de e-mail no cliente antes de enviar
+    if (window.EmailValidation) {
+        const emailErro = EmailValidation.validate(emailVal);
+        if (emailErro) {
+            msgEl.textContent = emailErro;
+            msgEl.className = 'form-message erro';
+            msgEl.style.display = 'block';
+            emailInput?.focus();
+            return;
+        }
+    }
+
     const data = {
         nome: document.getElementById('nome').value.trim(),
-        email: document.getElementById('email').value.trim(),
+        email: emailVal,
         telefone: telefoneRaw,
         assunto: assuntoVal,
         mensagem: document.getElementById('mensagem').value.trim()
@@ -142,7 +157,7 @@ document.getElementById("contato-form")?.addEventListener("submit", async functi
     }
 });
 
-// comportamento extra: formatar telefone e controlar combobox 'outro'
+// comportamento extra: formatar telefone, combobox 'outro' e validação de e-mail
 document.addEventListener('DOMContentLoaded', function(){
     const telefoneInput = document.getElementById('telefone');
     if (telefoneInput) {
@@ -165,6 +180,11 @@ document.addEventListener('DOMContentLoaded', function(){
                 assuntoOutro.required = false;
             }
         });
+    }
+
+    // Feedback de e-mail em tempo real
+    if (window.EmailValidation) {
+        EmailValidation.setup(document.getElementById('email'));
     }
 });
 </script>

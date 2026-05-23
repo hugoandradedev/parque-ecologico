@@ -1,8 +1,12 @@
-// Set minimum selectable date to today
+// Set minimum selectable date to today + wire email real-time validation
 document.addEventListener("DOMContentLoaded", () => {
     const dateInput = document.getElementById("data_reserva");
     if (dateInput) {
         dateInput.min = new Date().toISOString().split("T")[0];
+    }
+
+    if (window.EmailValidation) {
+        EmailValidation.setup(document.getElementById("email"));
     }
 });
 
@@ -50,6 +54,18 @@ document.getElementById("agendamento-form")
         resultado.className = "form-message erro";
         form.reportValidity();
         return;
+    }
+
+    // Validação de e-mail no cliente antes de enviar
+    if (window.EmailValidation) {
+        const emailInput = form.querySelector('[name="email"]');
+        const emailErro = EmailValidation.validate(emailInput?.value || '');
+        if (emailErro) {
+            resultado.innerText = emailErro;
+            resultado.className = "form-message erro";
+            emailInput?.focus();
+            return;
+        }
     }
 
     const formData = new FormData(form);

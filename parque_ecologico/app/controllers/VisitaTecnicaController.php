@@ -109,8 +109,9 @@ class VisitaTecnicaController {
         if (empty($data['nome_responsavel']) || strlen($data['nome_responsavel']) < 3)
             return "Responsável inválido";
 
-        if (!emailValido($data['email'] ?? ''))
-            return "E-mail inválido";
+        $erroEmail = obterErroEmail($data['email'] ?? '');
+        if ($erroEmail !== null)
+            return $erroEmail;
 
         $data['telefone'] = $this->normalizarTelefone($data['telefone'] ?? '');
         if (!preg_match('/^\d{10,11}$/', $data['telefone']))

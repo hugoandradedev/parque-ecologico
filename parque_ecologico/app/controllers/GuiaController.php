@@ -64,15 +64,18 @@ class GuiaController {
             return;
         }
 
-        if ($email !== '' && !emailValido($email)) {
-            http_response_code(400);
-            echo json_encode(["erro" => "E-mail do guia inválido"]);
-            return;
+        if ($email !== '') {
+            $erroEmail = obterErroEmail($email);
+            if ($erroEmail !== null) {
+                http_response_code(400);
+                echo json_encode(["erro" => $erroEmail]);
+                return;
+            }
         }
 
-        if (strlen($email) > 120) {
+        if (strlen($email) > 254) {
             http_response_code(400);
-            echo json_encode(["erro" => "E-mail não pode ter mais de 120 caracteres"]);
+            echo json_encode(["erro" => "E-mail não pode ter mais de 254 caracteres"]);
             return;
         }
 
@@ -146,15 +149,18 @@ class GuiaController {
             return;
         }
 
-        if ($email !== '' && !emailValido($email)) {
-            http_response_code(400);
-            echo json_encode(["erro" => "E-mail do guia inválido"]);
-            return;
+        if ($email !== '') {
+            $erroEmail = obterErroEmail($email);
+            if ($erroEmail !== null) {
+                http_response_code(400);
+                echo json_encode(["erro" => $erroEmail]);
+                return;
+            }
         }
 
-        if (strlen($email) > 120) {
+        if (strlen($email) > 254) {
             http_response_code(400);
-            echo json_encode(["erro" => "E-mail não pode ter mais de 120 caracteres"]);
+            echo json_encode(["erro" => "E-mail não pode ter mais de 254 caracteres"]);
             return;
         }
 
