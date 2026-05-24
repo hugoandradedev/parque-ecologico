@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         answered = false;
         scoreEl.textContent = score;
         restartBtn.textContent = "Jogar novamente";
+        nextBtn.style.display = "";
         renderQuestion();
     }
 
@@ -207,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
         questionEl.textContent = `Você acertou ${score} de ${questions.length} perguntas.`;
         feedbackEl.textContent = score >= 8 ? "Excelente! Você conhece muito bem as espécies do parque." : "Boa tentativa! Jogue novamente para ver outras perguntas.";
         feedbackEl.className = "game-feedback success";
-        nextBtn.disabled = true;
+        nextBtn.style.display = "none";
         progressEl.style.width = "100%";
     }
 
