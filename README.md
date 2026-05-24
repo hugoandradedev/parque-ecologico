@@ -14,6 +14,10 @@ Transforming technology into environmental preservation, public service, and dig
 ![HTML5](https://img.shields.io/badge/HTML5-111111?style=for-the-badge&logo=html5)
 ![CSS3](https://img.shields.io/badge/CSS3-111111?style=for-the-badge&logo=css3)
 
+<br>
+
+[🌐 Live Project](https://parqueecologicoitaqua.infinityfreeapp.com/parque_ecologico/)
+
 </div>
 
 ---
@@ -24,12 +28,12 @@ The **Itaquaquecetuba Ecological Park** platform was created to strengthen the c
 
 More than just an institutional website, the project was designed as a complete digital solution focused on:
 
-- environmental awareness;
-- digital transformation;
-- public service modernization;
-- visitor engagement;
-- educational experiences;
-- operational management.
+- environmental awareness
+- digital transformation
+- public service modernization
+- visitor engagement
+- educational experiences
+- operational management
 
 The platform combines public experience, environmental education, and administrative management in a single ecosystem.
 
@@ -39,11 +43,11 @@ The platform combines public experience, environmental education, and administra
 
 Developed in partnership with the **City Hall of Itaquaquecetuba**, the project focuses on:
 
-- environmental preservation;
-- public accessibility;
-- educational initiatives;
-- digital modernization;
-- community engagement.
+- environmental preservation
+- public accessibility
+- educational initiatives
+- digital modernization
+- community engagement
 
 The initiative reinforces the importance of Parque Ecológico Mário do Canto as an environmental and social heritage space for the city.
 
@@ -120,24 +124,34 @@ parque_ecologico/
 
 # ⚙️ Technologies
 
-## Backend
+<div align="center">
 
-- PHP 8.2
-- MySQL / MariaDB
-- PDO
-- MVC-inspired architecture
+### Backend
 
-## Frontend
+![PHP](https://img.shields.io/badge/PHP-111111?style=for-the-badge&logo=php)
+![Python](https://img.shields.io/badge/Python-111111?style=for-the-badge&logo=python)
+![MySQL](https://img.shields.io/badge/MySQL-111111?style=for-the-badge&logo=mysql)
+![PDO](https://img.shields.io/badge/PDO-111111?style=for-the-badge)
+![Apache](https://img.shields.io/badge/Apache-111111?style=for-the-badge&logo=apache)
+![MVC](https://img.shields.io/badge/MVC-111111?style=for-the-badge)
 
-- HTML5
-- CSS3
-- JavaScript
+<br>
 
-## Infrastructure
+### Frontend
 
-- Apache
-- XAMPP
-- PHP built-in development server
+![HTML5](https://img.shields.io/badge/HTML5-111111?style=for-the-badge&logo=html5)
+![CSS3](https://img.shields.io/badge/CSS3-111111?style=for-the-badge&logo=css3)
+![JavaScript](https://img.shields.io/badge/JavaScript-111111?style=for-the-badge&logo=javascript)
+
+<br>
+
+### Infrastructure & Tools
+
+![XAMPP](https://img.shields.io/badge/XAMPP-111111?style=for-the-badge&logo=xampp)
+![Git](https://img.shields.io/badge/Git-111111?style=for-the-badge&logo=git)
+![GitHub](https://img.shields.io/badge/GitHub-111111?style=for-the-badge&logo=github)
+
+</div>
 
 ---
 
@@ -168,7 +182,11 @@ More than building a website, the goal was to create a meaningful solution with 
 
 <div align="center">
 
-## 🌿 Parque Ecológico Mário do Canto
+# 🌿 Live Project
+
+### https://parqueecologicoitaqua.infinityfreeapp.com/parque_ecologico/
+
+<br>
 
 Technology, sustainability, and public service working together.
 
