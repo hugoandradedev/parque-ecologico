@@ -197,6 +197,9 @@ class VisitaTecnicaController {
         if (!empty($data['objetivo']) && mb_strlen($data['objetivo']) > 300)
             return "Objetivo inválido";
 
+        if (!empty($data['observacoes']) && mb_strlen($data['observacoes']) > 1000)
+            return "Observações muito longas";
+
         return null;
     }
 

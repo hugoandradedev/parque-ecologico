@@ -22,6 +22,7 @@ class VisitaTecnica {
             qtd_visitantes,
             faixa_etaria,
             objetivo,
+            observacoes,
             guia,
             guia_id,
             status
@@ -37,6 +38,7 @@ class VisitaTecnica {
             :qtd_visitantes,
             :faixa_etaria,
             :objetivo,
+            :observacoes,
             :guia,
             :guia_id,
             'pendente'
@@ -56,6 +58,7 @@ class VisitaTecnica {
         ':qtd_visitantes' => $data['qtd_visitantes'],
         ':faixa_etaria' => $data['faixa_etaria'] ?? null,
         ':objetivo' => $data['objetivo'] ?? null,
+        ':observacoes' => $data['observacoes'] ?? null,
         ':guia' => $data['guia'] ?? '',
         ':guia_id' => $data['guia_id']
     ]);

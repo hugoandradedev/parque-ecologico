@@ -143,6 +143,7 @@ CREATE TABLE `visita_tecnica` (
   `qtd_visitantes` int(11) NOT NULL,
   `faixa_etaria` varchar(50) DEFAULT NULL,
   `objetivo` text NOT NULL,
+  `observacoes` text DEFAULT NULL,
   `guia` varchar(100) NOT NULL,
   `status` varchar(20) DEFAULT 'pendente',
   `created_at` timestamp NULL DEFAULT current_timestamp(),

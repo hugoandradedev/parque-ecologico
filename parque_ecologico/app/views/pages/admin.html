@@ -374,6 +374,13 @@
                                 <span><?= htmlspecialchars($a['objetivo']) ?></span>
                             </div>
 
+                            <?php if (!empty($a['observacoes'])): ?>
+                                <div class="info-item" style="grid-column: 1 / -1;">
+                                    <strong>Observações</strong>
+                                    <span style="white-space: pre-wrap;"><?= nl2br(htmlspecialchars($a['observacoes'])) ?></span>
+                                </div>
+                            <?php endif; ?>
+
                             <div class="info-item">
                                 <strong>Propósito</strong>
                                 <span><?= htmlspecialchars($a['proposito_visita'] ?? 'Não informado') ?></span>
