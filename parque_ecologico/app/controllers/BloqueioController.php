@@ -27,6 +27,25 @@ class BloqueioController {
         return $date && $date->format('Y-m-d') === $value;
     }
 
+    private function isPastDate($value) {
+        $date = DateTimeImmutable::createFromFormat('Y-m-d', $value);
+        if (!$date) {
+            return true;
+        }
+
+        return $date < new DateTimeImmutable('today');
+    }
+
+    private function isAllowedYear($ano) {
+        $anoAtual = (int) date('Y');
+        return $ano >= $anoAtual && $ano <= ($anoAtual + 5);
+    }
+
+    private function mensagemAnoInvalido() {
+        $anoAtual = (int) date('Y');
+        return 'Ano inválido. Use um ano entre ' . $anoAtual . ' e ' . ($anoAtual + 5);
+    }
+
     private function getDatasComemorativas() {
         $ano = date('Y');
         
@@ -123,6 +142,12 @@ class BloqueioController {
             return;
         }
 
+        if ($this->isPastDate($data['data_bloqueada'])) {
+            http_response_code(422);
+            echo json_encode(['erro' => 'Não é permitido bloquear datas passadas']);
+            return;
+        }
+
         if (mb_strlen($data['motivo']) > 255) {
             http_response_code(422);
             echo json_encode(['erro' => 'Motivo muito longo']);
@@ -178,9 +203,9 @@ class BloqueioController {
 
         try {
             $ano = (int) ($_GET['ano'] ?? date('Y'));
-            if ($ano < 2000 || $ano > 2100) {
+            if (!$this->isAllowedYear($ano)) {
                 http_response_code(422);
-                echo json_encode(['erro' => 'Ano inválido']);
+                echo json_encode(['erro' => $this->mensagemAnoInvalido()]);
                 return;
             }
             
@@ -207,6 +232,10 @@ class BloqueioController {
 
             // Remover duplicatas
             $datas = array_unique($datas, SORT_REGULAR);
+
+            $datas = array_values(array_filter($datas, function($data) {
+                return !$this->isPastDate($data['data']);
+            }));
 
             // Ordenar por data
             usort($datas, function($a, $b) {
@@ -254,9 +283,9 @@ class BloqueioController {
             $ano = is_scalar($data['ano'] ?? null)
                 ? (int) $data['ano']
                 : (int) date('Y');
-            if ($ano < 2000 || $ano > 2100) {
+            if (!$this->isAllowedYear($ano)) {
                 http_response_code(422);
-                echo json_encode(['erro' => 'Ano inválido']);
+                echo json_encode(['erro' => $this->mensagemAnoInvalido()]);
                 return;
             }
             
@@ -283,6 +312,10 @@ class BloqueioController {
 
             $adicionadas = 0;
             foreach ($datas as $data) {
+                if ($this->isPastDate($data['data'])) {
+                    continue;
+                }
+
                 if (!$this->model->existeDataBloqueada($data['data'])) {
                     $this->model->create($data['data'], $data['nome']);
                     $adicionadas++;

@@ -10,6 +10,50 @@ let btnBloquearTodos = document.getElementById('btn-bloquear-todos');
 let anoComemorativos = document.getElementById('ano-comemorativas');
 let datasComerativasList = document.getElementById('datas-comemorativas-list');
 
+function formatLocalDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+function getAnoAtual() {
+    return new Date().getFullYear();
+}
+
+function configurarLimitesBloqueio() {
+    const hoje = new Date();
+    const hojeFormatado = formatLocalDate(hoje);
+    const dataInput = document.getElementById('bloqueio_data');
+    const anoAtual = getAnoAtual();
+    const anoLimite = anoAtual + 5;
+
+    if (dataInput) {
+        dataInput.min = hojeFormatado;
+    }
+
+    if (anoComemorativos) {
+        anoComemorativos.min = String(anoAtual);
+        anoComemorativos.max = String(anoLimite);
+        if (!anoComemorativos.value || Number(anoComemorativos.value) < anoAtual) {
+            anoComemorativos.value = String(anoAtual);
+        }
+    }
+}
+
+function anoComemorativoValido() {
+    const ano = Number(anoComemorativos?.value);
+    const anoAtual = getAnoAtual();
+    const anoLimite = anoAtual + 5;
+
+    return Number.isInteger(ano) && ano >= anoAtual && ano <= anoLimite;
+}
+
+function mensagemAnoInvalido() {
+    const anoAtual = getAnoAtual();
+    return `Informe um ano entre ${anoAtual} e ${anoAtual + 5}.`;
+}
+
 function escapeHtml(text) {
     if (typeof text !== 'string') return '';
     return text.replace(/[&<>"']/g, (match) => {
@@ -89,8 +133,17 @@ bloqueioForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = new FormData(bloqueioForm);
+    const dataBloqueada = formData.get('data_bloqueada');
+    const hoje = formatLocalDate(new Date());
+
+    if (!dataBloqueada || dataBloqueada < hoje) {
+        bloqueioMsg.textContent = '✗ Não é permitido bloquear datas passadas';
+        bloqueioMsg.style.color = 'red';
+        return;
+    }
+
     const data = {
-        data_bloqueada: formData.get('data_bloqueada'),
+        data_bloqueada: dataBloqueada,
         motivo: formData.get('motivo')
     };
 
@@ -130,6 +183,12 @@ bloqueioForm?.addEventListener('submit', async (e) => {
 // Carregar datas comemorativas
 btnCarregarDatas?.addEventListener('click', async () => {
     const ano = anoComemorativos.value;
+
+    if (!anoComemorativoValido()) {
+        datasComerativasList.innerHTML = `<p style="color: red;">${escapeHtml(mensagemAnoInvalido())}</p>`;
+        btnBloquearTodos.style.display = 'none';
+        return;
+    }
 
     try {
         const response = await fetch(`/parque_ecologico/api/bloqueios/datas-comemorativas?ano=${ano}`);
@@ -181,6 +240,11 @@ btnCarregarDatas?.addEventListener('click', async () => {
 btnBloquearTodos?.addEventListener('click', async () => {
     const ano = anoComemorativos.value;
 
+    if (!anoComemorativoValido()) {
+        alert(mensagemAnoInvalido());
+        return;
+    }
+
     if (!confirm(`Bloquear todas as datas comemorativas de ${ano}?`)) return;
 
     try {
@@ -210,3 +274,5 @@ btnBloquearTodos?.addEventListener('click', async () => {
         console.error(err);
     }
 });
+
+configurarLimitesBloqueio();
