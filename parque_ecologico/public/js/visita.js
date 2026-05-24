@@ -2,7 +2,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const dateInput = document.getElementById("data_visita");
     if (dateInput) {
-        dateInput.min = new Date().toISOString().split("T")[0];
+        const minDate = new Date();
+        minDate.setDate(minDate.getDate() + 7);
+        dateInput.min = minDate.toISOString().split("T")[0];
     }
 
     if (window.EmailValidation) {

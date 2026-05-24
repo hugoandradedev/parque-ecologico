@@ -70,6 +70,32 @@ ALTER TABLE visita_tecnica ENGINE=InnoDB, CONVERT TO CHARACTER SET utf8mb4 COLLA
 
 Depois da importacao, cadastre ou ative pelo menos um guia tecnico no painel administrativo. A pagina `/parque_ecologico/visita` busca guias ativos ao abrir, e o formulario depende dessa lista.
 
+### Ajuste de visita tecnica no InfinityFree
+
+Se a visita tecnica abrir, mas nao salvar, execute no phpMyAdmin o script:
+
+```text
+parque_ecologico/database/fix_visita_tecnica_infinityfree.sql
+```
+
+Esse script deve ser executado dentro do banco configurado no `.env`. Ele:
+
+- converte `visita_tecnica` para `InnoDB`;
+- cria as colunas `guia_id` e `observacoes` se estiverem faltando;
+- garante pelo menos um guia tecnico ativo para o formulario;
+- mostra consultas de conferencia no final.
+
+Depois de executar, confirme que:
+
+```text
+guias_ativos > 0
+visita_tecnica possui a coluna guia_id
+visita_tecnica possui a coluna observacoes
+visita_tecnica esta com Engine = InnoDB
+```
+
+No teste do formulario, use uma data em dia util com pelo menos 7 dias de antecedencia, pois essa e a regra validada pelo backend.
+
 ## 5. Configurar `.env`
 
 No servidor, crie o arquivo:
