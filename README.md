@@ -32,7 +32,10 @@ cp parque_ecologico/.env.example parque_ecologico/.env
 /Applications/XAMPP/xamppfiles/bin/php -r '$pdo=new PDO("mysql:host=127.0.0.1;charset=utf8mb4","root",""); $pdo->exec("CREATE DATABASE IF NOT EXISTS if0_41837589_parque CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");'
 /Applications/XAMPP/xamppfiles/bin/php -r '$pdo=new PDO("mysql:host=127.0.0.1;dbname=if0_41837589_parque;charset=utf8mb4","root",""); $pdo->exec(file_get_contents("parque_ecologico/database/ParqueEco_banco.sql"));'
 /Applications/XAMPP/xamppfiles/bin/php -r '$pdo=new PDO("mysql:host=127.0.0.1;dbname=if0_41837589_parque;charset=utf8mb4","root",""); $pdo->exec(file_get_contents("parque_ecologico/migrations/003_backend_hardening.sql"));'
+/Applications/XAMPP/xamppfiles/bin/php -r '$pdo=new PDO("mysql:host=127.0.0.1;dbname=if0_41837589_parque;charset=utf8mb4","root",""); $pdo->exec(file_get_contents("parque_ecologico/migrations/004_add_observacoes_visita_tecnica.sql"));'
 ```
+
+Para uma instalacao nova, o dump principal ja contem a estrutura atual. As migrations servem principalmente para bancos que ja existiam antes das correcoes.
 
 4. Suba o servidor local:
 

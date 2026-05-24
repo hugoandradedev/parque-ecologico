@@ -52,13 +52,15 @@ No phpMyAdmin do InfinityFree:
 parque_ecologico/database/ParqueEco_banco.sql
 ```
 
-3. Depois importe as migrations, se ainda nao estiverem refletidas no banco:
+3. Para uma instalacao nova usando o dump atualizado, normalmente nao e necessario aplicar migrations antigas manualmente.
+4. Se o banco ja existia antes desta versao, aplique as migrations pendentes em ordem:
 
 ```text
 parque_ecologico/migrations/003_backend_hardening.sql
+parque_ecologico/migrations/004_add_observacoes_visita_tecnica.sql
 ```
 
-Observacao: se a migration acusar indice/coluna ja existente, revise antes de repetir. O dump atual ja contem varias chaves e tabelas principais.
+Observacao: se uma migration acusar indice/coluna ja existente, revise antes de repetir. O dump atual ja contem a coluna `observacoes` em `visita_tecnica`.
 
 ## 5. Configurar `.env`
 
@@ -101,6 +103,7 @@ https://SEU_DOMINIO/parque_ecologico/login
 - Mesmo quiosque nao aceita horario sobreposto.
 - Quiosques diferentes aceitam o mesmo horario.
 - Visita tecnica grava no banco.
+- Observacoes da visita tecnica aparecem no painel administrativo.
 - Mesmo guia nao aceita horario sobreposto.
 - E-mails invalidos sao rejeitados.
 - Painel admin lista reservas, visitas, guias, bloqueios e mensagens.
