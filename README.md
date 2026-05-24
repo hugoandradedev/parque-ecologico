@@ -177,6 +177,14 @@ cp parque_ecologico/.env.example parque_ecologico/.env
 
 Para uma instalação nova, o dump principal já contém a estrutura atual. As migrations servem principalmente para bancos que já existiam antes das correções.
 
+Importante para visitas técnicas: a página `/parque_ecologico/visita` carrega a lista de guias diretamente do banco. Se o banco configurado em `.env` não existir, não estiver importado ou a tabela `guias` não tiver pelo menos um guia ativo, a tela pode não abrir corretamente ou o formulário ficará sem opção de guia.
+
+O fluxo de visita técnica usa transações no banco para evitar conflitos de horário. Por isso, a tabela `visita_tecnica` deve estar em `InnoDB`; o dump atualizado já traz essa configuração. Em bancos antigos, confira o engine no phpMyAdmin e converta se necessário:
+
+```sql
+ALTER TABLE visita_tecnica ENGINE=InnoDB, CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+```
+
 4. Suba o servidor local:
 
 ```bash

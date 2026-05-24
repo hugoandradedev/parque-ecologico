@@ -208,7 +208,7 @@ function obterErroEmail(string $email, bool $checkDNS = true): ?string
     // 9. Verificação DNS ──────────────────────────────────────────────────
     if ($checkDNS && !dominioExisteDNS($domain)) {
         $safe = htmlspecialchars($domain, ENT_QUOTES, 'UTF-8');
-        return "O domínio \"${safe}\" não foi encontrado. Verifique se o e-mail está correto.";
+        return "O domínio \"{$safe}\" não foi encontrado. Verifique se o e-mail está correto.";
     }
 
     return null; // ✓ válido

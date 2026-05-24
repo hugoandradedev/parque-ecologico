@@ -62,6 +62,14 @@ parque_ecologico/migrations/004_add_observacoes_visita_tecnica.sql
 
 Observacao: se uma migration acusar indice/coluna ja existente, revise antes de repetir. O dump atual ja contem a coluna `observacoes` em `visita_tecnica`.
 
+Para visitas tecnicas, confirme tambem que a tabela `visita_tecnica` esta usando `InnoDB`. O sistema grava visitas dentro de transacoes para evitar conflito de guia/horario; se essa tabela estiver como `MyISAM`, o envio pode falhar com erro interno. O dump atualizado ja cria essa tabela em `InnoDB`. Em banco antigo, execute no phpMyAdmin:
+
+```sql
+ALTER TABLE visita_tecnica ENGINE=InnoDB, CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+```
+
+Depois da importacao, cadastre ou ative pelo menos um guia tecnico no painel administrativo. A pagina `/parque_ecologico/visita` busca guias ativos ao abrir, e o formulario depende dessa lista.
+
 ## 5. Configurar `.env`
 
 No servidor, crie o arquivo:
@@ -112,5 +120,7 @@ https://SEU_DOMINIO/parque_ecologico/login
 
 - **CSS quebrado**: confirme que a pasta foi enviada como `htdocs/parque_ecologico`, nao apenas o conteudo interno.
 - **Erro de banco**: revise `DB_HOST`, `DB_NAME`, `DB_USER` e `DB_PASS` no `.env`.
+- **Visita tecnica nao abre**: confirme que o banco do `.env` existe, foi importado e que a tabela `guias` pode ser consultada.
+- **Visita tecnica nao envia**: confirme que existe guia ativo e que `visita_tecnica` esta em `InnoDB`.
 - **404 em rotas**: confirme que `.htaccess` foi enviado e que o hosting respeita rewrite.
 - **Erro ao importar migration**: provavelmente parte da migration ja existe. Compare a estrutura no phpMyAdmin antes de reaplicar.

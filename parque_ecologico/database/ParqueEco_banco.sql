@@ -149,7 +149,7 @@ CREATE TABLE `visita_tecnica` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `guia_id` int(11) NOT NULL,
   `usuario_id` int(11) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices de tabelas apagadas
