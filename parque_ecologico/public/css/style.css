@@ -95,6 +95,12 @@ p {
     color: var(--green-btn);
 }
 
+#auth-area {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
 .brand-area {
     display: flex;
     align-items: center;
