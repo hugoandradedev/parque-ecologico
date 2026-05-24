@@ -159,14 +159,14 @@ class VisitaTecnicaController {
         $entrada = strtotime($data['horario_entrada']);
         $saida = strtotime($data['horario_saida']);
 
-        $min = strtotime("08:00");
-        $max = strtotime("16:00");
+        $min = strtotime("09:00");
+        $max = strtotime("13:00");
 
         if ($entrada < $min || $entrada > $max)
-            return "Entrada inválida";
+            return "Entrada deve estar entre 09:00 e 13:00";
 
         if ($saida < $min || $saida > $max)
-            return "Saída inválida";
+            return "Saída deve estar entre 09:00 e 13:00";
 
         if ($saida <= $entrada)
             return "Saída deve ser após entrada";
@@ -187,8 +187,8 @@ class VisitaTecnicaController {
             return "Quantidade inválida";
         }
 
-        if ($data['qtd_visitantes'] > 4) {
-            return "Cada visita técnica permite no máximo 4 visitantes";
+        if ($data['qtd_visitantes'] > 30) {
+            return "Cada visita técnica permite no máximo 30 visitantes";
         }
 
         if (!empty($data['faixa_etaria']) && mb_strlen($data['faixa_etaria']) > 60)
