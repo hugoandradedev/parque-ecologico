@@ -1,132 +1,99 @@
-# Parque Ecológico de Itaquaquecetuba
+<div align="center">
 
-Site institucional e sistema de gestão desenvolvido em parceria com a Prefeitura de Itaquaquecetuba para aproximar a população do meio ambiente, facilitar o acesso aos serviços do Parque Ecológico Mário do Canto e fortalecer ações de educação ambiental na cidade.
+# 🌿 Itaquaquecetuba Ecological Park
 
-Este projeto nasceu com uma proposta simples e poderosa: transformar a presença digital do parque em uma ferramenta pública de informação, organização, preservação e cidadania. A plataforma reúne conteúdo institucional, agendamento de espaços, visitas técnicas, comunicação com a administração, recursos educativos e um painel administrativo completo para apoiar a gestão do parque.
+### Institutional platform and environmental management system developed in partnership with the City Hall of Itaquaquecetuba
 
-## Visão do projeto
+Transforming technology into environmental preservation, public service, and digital education.
 
-O Parque Ecológico é um espaço de convivência, lazer, memória ambiental e aprendizado. O site foi pensado para apresentar essa importância de forma clara, acessível e moderna, permitindo que moradores, escolas, visitantes e equipes administrativas encontrem rapidamente o que precisam.
+<br>
 
-Mais do que uma página bonita, o projeto funciona como uma ponte entre a Prefeitura de Itaquaquecetuba, o parque e a comunidade. Ele organiza informações essenciais, reduz processos manuais e reforça a mensagem de que preservar o meio ambiente também passa por tecnologia, planejamento e boa comunicação.
+![PHP](https://img.shields.io/badge/PHP-111111?style=for-the-badge&logo=php)
+![MySQL](https://img.shields.io/badge/MySQL-111111?style=for-the-badge&logo=mysql)
+![JavaScript](https://img.shields.io/badge/JavaScript-111111?style=for-the-badge&logo=javascript)
+![HTML5](https://img.shields.io/badge/HTML5-111111?style=for-the-badge&logo=html5)
+![CSS3](https://img.shields.io/badge/CSS3-111111?style=for-the-badge&logo=css3)
 
-## Parceria institucional
+</div>
 
-O sistema foi desenvolvido como uma iniciativa em parceria com a Prefeitura de Itaquaquecetuba, com foco em criar uma solução digital voltada ao meio ambiente e ao atendimento público.
+---
 
-A proposta valoriza o Parque Ecológico Mário do Canto como patrimônio ambiental da cidade e oferece uma experiência online alinhada com responsabilidade social, educação ecológica e serviço público eficiente.
+# 🌎 About The Project
 
-## O que o site entrega
+The **Itaquaquecetuba Ecological Park** platform was created to strengthen the connection between the community, environmental preservation, and the services offered by Parque Ecológico Mário do Canto.
 
-- Página inicial com apresentação do parque, galeria de imagens, localização, horários e chamadas para as principais ações.
-- Área "Sobre" com missão, história, compromisso ambiental e informações sobre o papel do parque na cidade.
-- Reserva gratuita de quiosques, com formulário organizado, validações e envio de solicitação para análise administrativa.
-- Agendamento de visitas técnicas para instituições, escolas e grupos, com seleção de guia, controle de visitantes e observações adicionais.
-- Formulário de contato para comunicação direta entre visitantes e administração.
-- Quiz ecológico para testar conhecimentos sobre meio ambiente, sustentabilidade e preservação.
-- Caça-palavras ecológico para tornar o aprendizado ambiental mais leve, interativo e divertido.
-- Painel administrativo para gerenciar reservas, visitas, guias, datas bloqueadas e mensagens recebidas.
-- Sistema de autenticação para proteger áreas administrativas.
-- API interna em PHP para processar dados, validar informações e organizar os fluxos do sistema.
+More than just an institutional website, the project was designed as a complete digital solution focused on:
 
-## Por que esse projeto importa
+- environmental awareness;
+- digital transformation;
+- public service modernization;
+- visitor engagement;
+- educational experiences;
+- operational management.
 
-Um parque público não é apenas um lugar para visitar. Ele é um espaço de educação, saúde, cultura, lazer e pertencimento. Quando a tecnologia é bem aplicada, ela ajuda a população a usar melhor esse espaço e ajuda a administração a cuidar melhor dele.
+The platform combines public experience, environmental education, and administrative management in a single ecosystem.
 
-Este projeto mostra exatamente isso: uma solução real, feita para uma necessidade real, com impacto direto na rotina de quem visita e de quem administra o parque.
+---
 
-Ele melhora a comunicação com o cidadão, centraliza solicitações, reduz ruído operacional, divulga informações ambientais e coloca o Parque Ecológico de Itaquaquecetuba em uma presença digital mais forte, organizada e convincente.
+# 🤝 Institutional Partnership
 
-## Diferenciais
+Developed in partnership with the **City Hall of Itaquaquecetuba**, the project focuses on:
 
-- Foco em serviço público, com linguagem clara e funcionalidades práticas.
-- Experiência acessível para visitantes que querem se informar, reservar espaços ou participar de atividades.
-- Gestão administrativa integrada, evitando que reservas, visitas, mensagens e guias fiquem espalhados em controles manuais.
-- Validações de telefone, e-mail, datas, horários e quantidade de visitantes.
-- Controle de conflitos para evitar agendamentos duplicados em horários incompatíveis.
-- Bloqueio de datas indisponíveis, incluindo suporte a datas comemorativas.
-- Conteúdo educativo para reforçar consciência ambiental.
-- Estrutura organizada em MVC simples, facilitando manutenção e evolução.
-- Interface pública e painel administrativo dentro da mesma aplicação.
+- environmental preservation;
+- public accessibility;
+- educational initiatives;
+- digital modernization;
+- community engagement.
 
-## A mente por trás da solução
+The initiative reinforces the importance of Parque Ecológico Mário do Canto as an environmental and social heritage space for the city.
 
-Este projeto tem aquela assinatura de quem não apenas "fez um site", mas pensou no fluxo inteiro: visitante, escola, administração, meio ambiente, dados, segurança, usabilidade e impacto público.
+---
 
-É o tipo de entrega que mostra domínio técnico e visão de produto. Aquele trabalho de mestre mesmo: pega uma demanda que poderia virar só uma página institucional comum e transforma em uma plataforma completa, com propósito, gestão, experiência e utilidade real para a cidade.
+# ✨ Features
 
-## Funcionalidades públicas
+## 🌿 Public Area
 
-### Página inicial
+- Modern and responsive institutional website
+- Park information and presentation
+- Image gallery
+- Opening hours and location
+- Free kiosk reservation system
+- Technical visit scheduling
+- Contact form
+- Environmental educational quiz
+- Interactive ecological word search game
 
-A home apresenta o Parque Ecológico Mário do Canto, destaca a experiência de lazer e preservação, exibe galeria de imagens, informa horário de funcionamento, mostra localização com mapa incorporado e direciona o usuário para reserva de quiosques, visitas técnicas, página sobre, quiz e jogo educativo.
+---
 
-### Reserva de quiosques
+## 🛠 Administrative Dashboard
 
-Permite que visitantes solicitem o uso gratuito dos quiosques do parque. O formulário coleta dados do responsável, telefone, e-mail, data, horário, quiosque desejado, quantidade de visitantes e aceite dos termos.
+- Reservation management
+- Approval and rejection workflows
+- Technical visit management
+- Environmental guide management
+- Date blocking system
+- Contact message management
+- Filtering and organization tools
+- Integrated administrative workflows
 
-A solicitação passa por validação e depende de confirmação da administração.
+---
 
-### Visitas técnicas
+# 🧠 Project Highlights
 
-Voltada principalmente para instituições, escolas e grupos organizados. A página permite informar dados da instituição, responsável, data da visita, quantidade de visitantes, objetivo da visita, guia técnico e observações adicionais.
+- Designed for public service environments
+- Accessible and user-friendly experience
+- Integration between management and community
+- Organized administrative workflows
+- Intelligent scheduling conflict control
+- Data validation and security
+- Environmental educational resources
+- Scalable and maintainable architecture
 
-Cada visita técnica possui limite de visitantes e controle de disponibilidade de guia.
+---
 
-### Contato
+# 🏗 Architecture
 
-Canal para visitantes enviarem mensagens, dúvidas, sugestões ou solicitações. As mensagens ficam disponíveis no painel administrativo para acompanhamento.
-
-### Quiz ecológico
-
-Recurso educativo que incentiva o aprendizado sobre sustentabilidade, preservação ambiental e atitudes conscientes.
-
-### Caça-palavras ecológico
-
-Jogo interativo com termos ligados à natureza e preservação. Uma forma simples e criativa de reforçar vocabulário ambiental e engajar usuários.
-
-## Painel administrativo
-
-O painel administrativo centraliza a operação do sistema. Nele, a equipe pode:
-
-- Visualizar reservas de quiosques.
-- Aprovar, rejeitar ou excluir solicitações.
-- Visualizar visitas técnicas.
-- Gerenciar guias técnicos.
-- Cadastrar, editar, ativar e remover guias.
-- Bloquear datas indisponíveis para agendamento.
-- Importar datas comemorativas brasileiras para bloqueio.
-- Visualizar e gerenciar mensagens de contato.
-- Filtrar registros por status, tipo, data, quiosque, responsável e guia.
-- Ordenar registros por data.
-
-Essa área foi construída para dar autonomia à administração e tornar o atendimento mais organizado, rápido e rastreável.
-
-## Arquitetura
-
-O projeto utiliza PHP com uma estrutura própria inspirada em MVC:
-
-- `controllers`: recebem requisições, aplicam regras e respondem às rotas.
-- `models`: concentram acesso e persistência de dados.
-- `views`: armazenam páginas HTML renderizadas pela aplicação.
-- `core`: contém roteamento, sessão e renderização.
-- `helpers`: funções auxiliares para validação, CSRF e rate limit.
-- `public`: arquivos CSS, JavaScript e imagens.
-- `database`: dump base do banco de dados.
-- `migrations`: ajustes incrementais de estrutura.
-
-## Tecnologias
-
-- PHP 8.2
-- MySQL/MariaDB
-- HTML5
-- CSS3
-- JavaScript
-- PDO
-- Apache em produção
-- Servidor embutido do PHP para desenvolvimento local
-
-## Estrutura principal
+The project uses an MVC-inspired architecture focused on organization, maintainability, and scalability.
 
 ```text
 parque_ecologico/
@@ -149,82 +116,60 @@ parque_ecologico/
 └── populate_bloqueios.php
 ```
 
-## Requisitos
+---
 
-- PHP 8.2 ou compatível
-- MySQL/MariaDB
-- Apache com rewrite habilitado em produção
-- XAMPP ou ambiente equivalente para desenvolvimento local
+# ⚙️ Technologies
 
-## Configuração local
+## Backend
 
-1. Copie o arquivo de ambiente:
+- PHP 8.2
+- MySQL / MariaDB
+- PDO
+- MVC-inspired architecture
 
-```bash
-cp parque_ecologico/.env.example parque_ecologico/.env
-```
+## Frontend
 
-2. Ajuste `parque_ecologico/.env` com as credenciais do MySQL local.
+- HTML5
+- CSS3
+- JavaScript
 
-3. Crie e importe o banco:
+## Infrastructure
 
-```bash
-/Applications/XAMPP/xamppfiles/bin/php -r '$pdo=new PDO("mysql:host=127.0.0.1;charset=utf8mb4","root",""); $pdo->exec("CREATE DATABASE IF NOT EXISTS if0_41837589_parque CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");'
-/Applications/XAMPP/xamppfiles/bin/php -r '$pdo=new PDO("mysql:host=127.0.0.1;dbname=if0_41837589_parque;charset=utf8mb4","root",""); $pdo->exec(file_get_contents("parque_ecologico/database/ParqueEco_banco.sql"));'
-/Applications/XAMPP/xamppfiles/bin/php -r '$pdo=new PDO("mysql:host=127.0.0.1;dbname=if0_41837589_parque;charset=utf8mb4","root",""); $pdo->exec(file_get_contents("parque_ecologico/migrations/003_backend_hardening.sql"));'
-/Applications/XAMPP/xamppfiles/bin/php -r '$pdo=new PDO("mysql:host=127.0.0.1;dbname=if0_41837589_parque;charset=utf8mb4","root",""); $pdo->exec(file_get_contents("parque_ecologico/migrations/004_add_observacoes_visita_tecnica.sql"));'
-```
+- Apache
+- XAMPP
+- PHP built-in development server
 
-Para uma instalação nova, o dump principal já contém a estrutura atual. As migrations servem principalmente para bancos que já existiam antes das correções.
+---
 
-Importante para visitas técnicas: a página `/parque_ecologico/visita` carrega a lista de guias diretamente do banco. Se o banco configurado em `.env` não existir, não estiver importado ou a tabela `guias` não tiver pelo menos um guia ativo, a tela pode não abrir corretamente ou o formulário ficará sem opção de guia.
+# 🔐 Security & Reliability
 
-O fluxo de visita técnica usa transações no banco para evitar conflitos de horário. Por isso, a tabela `visita_tecnica` deve estar em `InnoDB`; o dump atualizado já traz essa configuração. Em bancos antigos, confira o engine no phpMyAdmin e converta se necessário:
+The platform includes important mechanisms to ensure security and operational stability:
 
-```sql
-ALTER TABLE visita_tecnica ENGINE=InnoDB, CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-```
+- Email validation
+- Phone normalization
+- CSRF protection
+- Session management
+- Rate limiting
+- PDO database layer
+- Scheduling conflict protection
+- Separation between public and administrative areas
 
-4. Suba o servidor local:
+---
 
-```bash
-cd /caminho/para/parque
-/Applications/XAMPP/xamppfiles/bin/php -S localhost:8000
-```
+# 🌱 Project Impact
 
-5. Abra no navegador:
+This project demonstrates how technology can strengthen environmental initiatives and improve the relationship between public administration and the community.
 
-```text
-http://localhost:8000/parque_ecologico/
-```
+The platform transforms manual processes into organized digital workflows, improves communication with visitors, and expands access to environmental information.
 
-## Login administrativo
+More than building a website, the goal was to create a meaningful solution with real social, environmental, and operational impact.
 
-O dump possui um usuário admin. Use as credenciais combinadas pelo responsável do projeto. Se necessário, atualize a senha diretamente no banco com `password_hash` do PHP.
+---
 
-## Segurança e qualidade
+<div align="center">
 
-O projeto possui validações importantes para reduzir erros de uso e proteger os fluxos principais:
+## 🌿 Parque Ecológico Mário do Canto
 
-- Normalização e validação de telefone.
-- Validação de e-mail.
-- Controle de sessão para área administrativa.
-- Proteção CSRF em ações sensíveis.
-- Rate limit em formulários públicos.
-- Uso de PDO para acesso ao banco.
-- Tratamento de conflitos em reservas e visitas.
-- Separação entre páginas públicas, API e painel administrativo.
+Technology, sustainability, and public service working together.
 
-## Deploy
-
-Veja [DEPLOY_INFINITYFREE.md](DEPLOY_INFINITYFREE.md) para orientações de publicação.
-
-## Contrato da API
-
-Veja [API_CONTRACT.md](API_CONTRACT.md) para regras de telefone, e-mail e comportamento de `/api/auth/check`.
-
-## Resultado
-
-O resultado é uma plataforma completa para o Parque Ecológico de Itaquaquecetuba: bonita para o cidadão, útil para a Prefeitura, educativa para a comunidade e organizada para quem administra.
-
-Um projeto com propósito ambiental, aplicação prática e execução de respeito.
+</div>
