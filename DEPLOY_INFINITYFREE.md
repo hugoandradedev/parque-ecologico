@@ -46,14 +46,19 @@ No painel do InfinityFree:
 No phpMyAdmin do InfinityFree:
 
 1. Selecione o banco criado.
-2. Importe:
+2. Clique na aba **Importar**.
+3. Em **Escolher arquivo**, selecione o arquivo:
 
 ```text
 parque_ecologico/database/ParqueEco_banco.sql
 ```
 
-3. Para uma instalacao nova usando o dump atualizado, normalmente nao e necessario aplicar migrations antigas manualmente.
-4. Se o banco ja existia antes desta versao, aplique as migrations pendentes em ordem:
+4. Clique em **Executar**.
+5. Aguarde aparecer a mensagem de importacao concluida.
+
+Para uma instalacao nova usando o dump atualizado, normalmente nao e necessario aplicar migrations antigas manualmente.
+
+Se o banco ja existia antes desta versao, aplique as migrations pendentes em ordem:
 
 ```text
 parque_ecologico/migrations/003_backend_hardening.sql
@@ -70,22 +75,71 @@ ALTER TABLE visita_tecnica ENGINE=InnoDB, CONVERT TO CHARACTER SET utf8mb4 COLLA
 
 Depois da importacao, cadastre ou ative pelo menos um guia tecnico no painel administrativo. A pagina `/parque_ecologico/visita` busca guias ativos ao abrir, e o formulario depende dessa lista.
 
-### Ajuste de visita tecnica no InfinityFree
+### Passo a passo para corrigir visita tecnica
 
-Se a visita tecnica abrir, mas nao salvar, execute no phpMyAdmin o script:
+Use este passo a passo quando o site ja esta no InfinityFree, mas o formulario de visita tecnica nao salva.
+
+#### A. Subir os arquivos alterados
+
+```text
+parque_ecologico/public/js/visita.js
+parque_ecologico/app/views/pages/visita.html
+parque_ecologico/database/fix_visita_tecnica_infinityfree.sql
+DEPLOY_INFINITYFREE.md
+```
+
+No File Manager do InfinityFree:
+
+1. Abra a pasta `htdocs`.
+2. Abra a pasta `parque_ecologico`.
+3. Substitua este arquivo:
+
+```text
+htdocs/parque_ecologico/public/js/visita.js
+```
+
+4. Substitua este arquivo:
+
+```text
+htdocs/parque_ecologico/app/views/pages/visita.html
+```
+
+5. Envie este arquivo para a pasta `database`:
+
+```text
+htdocs/parque_ecologico/database/fix_visita_tecnica_infinityfree.sql
+```
+
+Se estiver usando o pacote `.zip` de correcao, envie o `.zip` para `htdocs`, extraia mantendo a estrutura de pastas e confirme que os caminhos acima ficaram iguais.
+
+#### B. Executar o SQL no phpMyAdmin
+
+No painel do InfinityFree:
+
+1. Acesse **MySQL Databases**.
+2. Clique em **Admin** para abrir o phpMyAdmin do banco usado pelo projeto.
+3. No menu lateral, clique no banco configurado no arquivo `.env`.
+4. Clique na aba **Importar**.
+5. Clique em **Escolher arquivo**.
+6. Selecione o arquivo:
 
 ```text
 parque_ecologico/database/fix_visita_tecnica_infinityfree.sql
 ```
 
-Esse script deve ser executado dentro do banco configurado no `.env`. Ele:
+7. Clique em **Executar**.
+8. Aguarde o phpMyAdmin finalizar.
+
+Esse script:
 
 - converte `visita_tecnica` para `InnoDB`;
 - cria as colunas `guia_id` e `observacoes` se estiverem faltando;
 - garante pelo menos um guia tecnico ativo para o formulario;
 - mostra consultas de conferencia no final.
 
-Depois de executar, confirme que:
+#### C. Conferir o resultado do SQL
+
+No final da execucao, confirme que:
 
 ```text
 guias_ativos > 0
@@ -94,7 +148,51 @@ visita_tecnica possui a coluna observacoes
 visita_tecnica esta com Engine = InnoDB
 ```
 
-No teste do formulario, use uma data em dia util com pelo menos 7 dias de antecedencia, pois essa e a regra validada pelo backend.
+Se `guias_ativos` aparecer como `0`, entre no painel administrativo do site e cadastre um guia tecnico ativo.
+
+#### D. Testar no site
+
+1. Abra:
+
+```text
+https://SEU_DOMINIO/parque_ecologico/visita
+```
+
+2. Preencha todos os campos obrigatorios.
+3. Escolha uma data em dia util com pelo menos 7 dias de antecedencia.
+4. Escolha um horario entre `09:00` e `13:00`.
+5. Selecione um guia tecnico.
+6. Marque o aceite dos termos.
+7. Clique em **Solicitar Visita Tecnica**.
+
+Se o envio ainda falhar, abra as ferramentas do navegador, confira a aba **Network/Rede** e veja a resposta da rota:
+
+```text
+/parque_ecologico/api/visita/enviar
+```
+
+As mensagens mais comuns sao:
+
+- `Guia indisponivel`: nao existe guia ativo no banco.
+- `Visitas devem ser agendadas com no minimo 7 dia de antecedencia`: a data escolhida esta muito proxima.
+- `Data indisponivel`: a data esta bloqueada.
+- `Erro ao salvar visita tecnica`: confira se o SQL de correcao foi executado no banco certo.
+
+#### E. Quando usar cada arquivo SQL
+
+Use esta regra:
+
+```text
+Banco novo:
+1. Importe parque_ecologico/database/ParqueEco_banco.sql
+2. Importe parque_ecologico/database/fix_visita_tecnica_infinityfree.sql
+
+Banco ja existente:
+1. Nao importe ParqueEco_banco.sql de novo
+2. Importe apenas parque_ecologico/database/fix_visita_tecnica_infinityfree.sql
+```
+
+Nao importe o `ParqueEco_banco.sql` em banco que ja possui dados reais, porque isso pode causar conflito ou sobrescrever a estrutura existente.
 
 ## 5. Configurar `.env`
 
