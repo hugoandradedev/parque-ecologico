@@ -53,6 +53,38 @@ The initiative reinforces the importance of Parque Ecológico Mário do Canto as
 
 ---
 
+# 👨‍💼 Project Leadership
+
+During the development of the platform, I worked as **Project Manager**, coordinating a multidisciplinary team of **22 people** throughout the planning, organization, and execution of the project.
+
+I was responsible for managing and supporting multiple project areas, including:
+
+- Marketing
+- Networking
+- Frontend Development
+- Backend Development
+- Quality Assurance
+- Technical Documentation
+
+My responsibilities included:
+
+- task organization and workflow coordination
+- communication between teams
+- development monitoring and alignment
+- project planning and execution support
+- technical and operational assistance during development
+
+In the final stages of the project, I also contributed directly to the technical side of the platform by:
+
+- fixing backend bugs
+- improving system stability
+- optimizing frontend behavior and performance
+- enhancing usability and user experience
+
+This combination of leadership and technical contribution helped deliver a more stable, organized, and efficient platform.
+
+---
+
 # ✨ Features
 
 ## 🌿 Public Area
