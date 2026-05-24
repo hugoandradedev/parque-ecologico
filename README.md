@@ -161,7 +161,6 @@ parque_ecologico/
 ### Backend
 
 ![PHP](https://img.shields.io/badge/PHP-111111?style=for-the-badge&logo=php)
-![Python](https://img.shields.io/badge/Python-111111?style=for-the-badge&logo=python)
 ![MySQL](https://img.shields.io/badge/MySQL-111111?style=for-the-badge&logo=mysql)
 ![PDO](https://img.shields.io/badge/PDO-111111?style=for-the-badge)
 ![Apache](https://img.shields.io/badge/Apache-111111?style=for-the-badge&logo=apache)
