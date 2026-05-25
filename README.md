@@ -83,9 +83,10 @@ In the final stages of the project, I also contributed directly to the technical
 • Fixing backend bugs  
 • Improving system stability  
 • Optimizing frontend behavior and performance  
-• Enhancing usability and user experience  
+• Enhancing usability and user experience
 
-This combination of leadership, project management, agile coordination, and technical contribution helped deliver a more stable, organized, and efficient platform.
+This combination of leadership, project management, agile coordination, and technical contribution helped deliver a more stable, organized, and efficient platform.  
+
 ---
 
 # ✨ Features
