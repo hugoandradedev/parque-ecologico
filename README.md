@@ -68,11 +68,15 @@ I was responsible for managing and supporting multiple project areas, including:
 
 My responsibilities included:
 
-• Task organization and workflow coordination  
-• Communication between teams  
-• Development monitoring and alignment  
-• Project planning and execution support  
-• Technical and operational assistance during development  
+• Sprint planning and workflow management  
+• Task organization and prioritization  
+• Team coordination and cross-functional communication  
+• Monitoring project progress and delivery alignment  
+• Supporting agile development processes  
+• Assisting in decision-making and problem-solving  
+• Project planning, execution, and operational support  
+• Technical and organizational assistance throughout development  
+• Managing collaboration between technical and non-technical teams  
 
 In the final stages of the project, I also contributed directly to the technical side of the platform by:
 
@@ -81,8 +85,7 @@ In the final stages of the project, I also contributed directly to the technical
 • Optimizing frontend behavior and performance  
 • Enhancing usability and user experience  
 
-This combination of leadership and technical contribution helped deliver a more stable, organized, and efficient platform.
-
+This combination of leadership, project management, agile coordination, and technical contribution helped deliver a more stable, organized, and efficient platform.
 ---
 
 # ✨ Features
