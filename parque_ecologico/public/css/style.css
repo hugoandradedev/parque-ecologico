@@ -1544,6 +1544,11 @@ textarea {
         text-align: center;
     }
 
+    #auth-area {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .nav-links a {
         display: block;
     }
